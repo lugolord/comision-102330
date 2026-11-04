@@ -1,21 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router"
-import Navbar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer'
-import NotFound from './components/NotFound'
-import ItemDetailContainer from './components/ItemDetailContainer'
+import AppRouter from './router/AppRouter'
 
 function App () {
-  return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer />} />
-        <Route path='/category/:category' element={<ItemListContainer />} />
-        <Route path='/item/:id' element={<ItemDetailContainer />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <AppRouter />
 }
 
 export default App
