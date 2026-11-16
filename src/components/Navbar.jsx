@@ -1,9 +1,9 @@
-import { Link, NavLink, useNavigate } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import { useCategories } from '../hooks/useCategories'
+import CartWidget from './CartWidget'
 
 function Navbar () {
   const categories = useCategories()
-  const navigate = useNavigate()
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -32,28 +32,7 @@ function Navbar () {
         <button className="btn btn-ghost btn-circle">
           <svg aria-label="Search" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
         </button>
-        <button onClick={() => navigate('/cart')} className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <svg
-              aria-label="Shopping cart"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 3h2l2.4 12.2a2 2 0 002 1.8h8.7a2 2 0 002-1.6L22 7H6"
-              />
-              <circle cx="10" cy="21" r="1" fill="currentColor" />
-              <circle cx="19" cy="21" r="1" fill="currentColor" />
-            </svg>
-            <span className="badge badge-xs badge-primary indicator-item">0</span>
-          </div>
-        </button>
+        <CartWidget />
       </div>
     </div>
   )

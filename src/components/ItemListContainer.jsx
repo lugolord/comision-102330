@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
 import ItemList from './ItemList'
+import ItemListSkeleton from './ItemListSkeleton'
 
 function ItemListContainer () {
   const [items, setItems] = useState([])
@@ -16,15 +17,17 @@ function ItemListContainer () {
 
     fetch(category ? `${urlCategories}?limit=10&skip=${skip}` : `${urlBase}?limit=10&skip=${skip}`)
       .then(res => res.json())
-      .then(data => setItems(data.products))
+      .then(data => {
+        setTimeout(() => {
+          setItems(data.products)
+        }, 2000)
+      })
   }, [category, skip])
 
   return (
-    <ItemList 
-      items={items} 
-      handleNextPage={handleNextPage}
-      handlePrevPage={handlePrevPage} 
-    />
+    <>
+      {!items.length ? <ItemListSkeleton /> : <ItemList items={items} handleNextPage={handleNextPage}handlePrevPage={handlePrevPage} />}
+    </>
   )
 }
 
