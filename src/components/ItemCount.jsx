@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
+// TODO: al agregar un producto en su maximo stock, no se pueda seguir agregando de ese producto
 function ItemCount ({ item }) {
   const [count, setCount] = useState(1)
   const { addToCart } = useContext(CartContext)

@@ -7,11 +7,11 @@ function Item ({ item }) {
     <div className="card bg-base-300 shadow-sm">
       <figure>
         <img
-          src={item.thumbnail}
-          alt={item.title} />
+          src={item.image}
+          alt={item.name} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{item.title}</h2>
+        <h2 className="card-title">{item.name}</h2>
         <div className="card-actions justify-end">
           <button 
             className="btn btn-block btn-primary"

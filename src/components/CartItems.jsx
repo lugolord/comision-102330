@@ -3,9 +3,9 @@ function CartItems ({ cart, increaseItem, decreaseItem, removeItem }) {
     <ul className="list bg-base-300 rounded-box shadow-md">
       {cart.map(cartItem => (
         <li className="list-row" key={cartItem.id}>
-          <div><img className="size-10 rounded-box" alt="Tailwind CSS list item" src={cartItem.thumbnail}/></div>
+          <div><img className="size-10 rounded-box" alt="Tailwind CSS list item" src={cartItem.image}/></div>
           <div>
-            <div>{cartItem.title}</div>
+            <div>{cartItem.name}</div>
             <div className="text-xs uppercase font-semibold opacity-60">x{cartItem.count}</div>
           </div>
           <button 
